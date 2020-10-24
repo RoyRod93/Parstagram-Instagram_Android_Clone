@@ -1,8 +1,8 @@
 # Project 3 - *Parstagram-Instagram_Android_Clone*
 
-**Parstagram-Instagram_Android_Clone** is a photo sharing app similar to Instagram but using Parse as its backend.
+**Parstagram** is a photo sharing app similar to Instagram but using Parse as its backend.
 
-Time spent: **7** hours spent in total
+Time spent: **8** hours spent in total
 
 ## User Stories
 
@@ -23,7 +23,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/hEFFUDd.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
