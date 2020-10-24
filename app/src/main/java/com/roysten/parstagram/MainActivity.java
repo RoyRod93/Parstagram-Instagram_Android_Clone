@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText etDescription;
     private Button btnSubmit, btnCaptureImage;
     private ImageView ivPostImage, ivLogoutIcon;
-    ProgressBar pb;
 
     private File photoFile;
     public String photoFileName = "photo.jpg";
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         btnCaptureImage = findViewById(R.id.btnCaptureImage);
         ivPostImage = findViewById(R.id.ivPostImage);
         ivLogoutIcon = findViewById(R.id.ivLogout);
-        pb = findViewById(R.id.pbLoading);
+        final ProgressBar pb = findViewById(R.id.pbLoading);
 
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
