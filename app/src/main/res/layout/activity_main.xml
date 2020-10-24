@@ -7,31 +7,116 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/etDescription"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/description" />
+        android:layout_height="0dp"
+        android:layout_gravity="top"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btnCaptureImage"
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:src="@drawable/cam_icon" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="4"
+            android:src="@drawable/login_page_logo" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/dm_icon" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/take_picture" />
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="8"
+        android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/ivPostImage"
+
+        <Button
+            android:id="@+id/btnCaptureImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/take_picture" />
+
+        <ImageView
+            android:id="@+id/ivPostImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/description" />
+
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/submit" />
+
+        <ProgressBar
+            android:id="@+id/pbLoading"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@color/teal_200"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:src="@drawable/home_icon" />
 
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/submit" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="3"
+            android:src="@drawable/plus_icon" />
+
+        <ImageView
+            android:id="@+id/ivLogout"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/exit_icon" />
+
+    </LinearLayout>
 
 
 </LinearLayout>

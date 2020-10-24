@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -35,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText etDescription;
     private Button btnSubmit, btnCaptureImage;
-    private ImageView ivPostImage;
+    private ImageView ivPostImage, ivLogoutIcon;
+    ProgressBar pb;
+
     private File photoFile;
     public String photoFileName = "photo.jpg";
 
@@ -49,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         btnSubmit = findViewById(R.id.btnSubmit);
         btnCaptureImage = findViewById(R.id.btnCaptureImage);
         ivPostImage = findViewById(R.id.ivPostImage);
+        ivLogoutIcon = findViewById(R.id.ivLogout);
+        pb = findViewById(R.id.pbLoading);
+
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String description = etDescription.getText().toString();
                 if (description.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Description Cannot Be Empty!", Toast.LENGTH_SHORT).show();
@@ -72,10 +79,30 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "There is no Image!", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                pb.setVisibility(ProgressBar.VISIBLE);
+
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(description, currentUser, photoFile);
+
+                pb.setVisibility(ProgressBar.INVISIBLE);
             }
         });
+
+        ivLogoutIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseUser.logOut();
+                //ParseUser parseUser = ParseUser.getCurrentUser();
+
+                Toast.makeText(getApplicationContext(), "Logout Success", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
     }
 
