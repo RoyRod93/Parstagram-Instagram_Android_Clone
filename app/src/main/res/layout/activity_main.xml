@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/llTopBar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
+        android:layout_marginBottom="5dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
@@ -31,92 +31,31 @@
             android:src="@drawable/login_page_logo" />
 
         <ImageView
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:src="@drawable/dm_icon" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="8"
-        android:orientation="vertical">
-
-
-        <Button
-            android:id="@+id/btnCaptureImage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/take_picture" />
-
-        <ImageView
-            android:id="@+id/ivPostImage"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <EditText
-            android:id="@+id/etDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/description" />
-
-
-        <Button
-            android:id="@+id/btnSubmit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/submit" />
-
-        <ProgressBar
-            android:id="@+id/pbLoading"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:backgroundTint="@color/teal_200"
-            android:visibility="invisible" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:src="@drawable/home_icon" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_weight="3"
-            android:src="@drawable/plus_icon" />
-
-        <ImageView
-            android:id="@+id/ivLogout"
+            android:id="@+id/logout"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:src="@drawable/exit_icon" />
 
+
     </LinearLayout>
 
+    <FrameLayout
+        android:id="@+id/flContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation"
+        android:layout_below="@id/llTopBar" />
 
-</LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        app:menu="@menu/menu_bottom_navigation" />
+
+
+</RelativeLayout>

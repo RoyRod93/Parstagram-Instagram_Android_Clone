@@ -11,6 +11,7 @@
         android:icon="@mipmap/parstagram_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/parstagram_icon"
+        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
