@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -30,6 +31,7 @@ public class PostsFragment extends Fragment {
     private RecyclerView rvPosts;
     protected PostsAdapter adapter;
     protected List<Post> allPosts;
+    private SwipeRefreshLayout swipeContainer;
 
     public PostsFragment() {
         // Required empty public constructor
@@ -50,6 +52,16 @@ public class PostsFragment extends Fragment {
         adapter = new PostsAdapter(getContext(), allPosts);
         rvPosts.setAdapter(adapter);
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                queryPosts();
+                swipeContainer.setRefreshing(false);
+            }
+        });
+
         queryPosts();
     }
 
@@ -70,6 +82,7 @@ public class PostsFragment extends Fragment {
                     Log.i(TAG, "Post: " + post.getDescription());
                 }
 
+                adapter.clear();
                 allPosts.addAll(posts);
                 adapter.notifyDataSetChanged();
             }
